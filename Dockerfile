@@ -2,8 +2,9 @@ FROM node:24-alpine AS build
 WORKDIR /app
 COPY package.json ./
 RUN npm install
+COPY eslint.config.mjs ./
 COPY src/ ./src/
-COPY tsconfig.json ./
+COPY tsconfig.json tsconfig.test.json ./
 RUN npm run compile
 RUN npm prune --omit=dev
 
