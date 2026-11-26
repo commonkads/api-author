@@ -4,7 +4,7 @@ COPY package.json ./
 RUN npm install
 COPY eslint.config.mjs ./
 COPY src/ ./src/
-COPY tsconfig.json ./
+COPY tsconfig.json tsconfig.test.json ./
 RUN npm run compile
 RUN npm prune --omit=dev
 
